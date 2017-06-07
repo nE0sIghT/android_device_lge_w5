@@ -67,7 +67,16 @@ void vendor_load_properties()
     char devicename[PROP_VALUE_MAX];
 
     std::string serial = property_get("ro.boot.serialno");
-    if (serial.substr(0,6) == "LGD320") {
+    if (serial.substr(0,6) == "LGD285") {
+        property_set("ro.product.device", "w55ds");
+        property_set("ro.product.model", "LG-D285");
+        property_set("ro.build.description", "cm_w55ds-userdebug 7.1 NDE63X cf84cd3c64 test-keys");
+        property_set("ro.build.fingerprint", "lge/cm_w55ds/w55ds:7.1/NDE63X/cf84cd3c64:userdebug/test-keys");
+        property_set("persist.multisim.config", "dsds");
+        property_set("persist.radio.multisim.config", "dsds");
+        property_set("persist.radio.dont_use_dsd", "true");
+        property_set("ro.telephony.ril.config", "simactivation");
+    } else if (serial.substr(0,6) == "LGD320") {
         
         if (check_cmdline("model.name=LG-D320n") == 1) {
                 property_set("ro.product.device", "w5");

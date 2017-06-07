@@ -3,6 +3,13 @@
 model=`cat /proc/cmdline | sed -e 's/^.*model.name=//' -e 's/ .*$//'`
 
 case $model in
+     "LG-D285")
+	rm /system/etc/permissions/android.hardware.nfc.xml
+	rm /system/etc/permissions/android.hardware.nfc.hce.xml
+	rm /system/lib/hw/nfc_nci.w5.so
+	rm -rf /system/app/NfcNci
+	cat /system/usr/keylayout/Generic-D285.kl > /system/usr/keylayout/Generic.kl
+          ;;
      "LG-D320")
 	rm /system/etc/permissions/android.hardware.nfc.xml
 	rm /system/etc/permissions/android.hardware.nfc.hce.xml
